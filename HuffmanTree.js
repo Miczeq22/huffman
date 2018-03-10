@@ -29,13 +29,9 @@ class HuffmanTree {
     }
     
     encode(string) {
-        let binaryString = "";
-
-        string.split("").map(e =>  {
-            binaryString = `${binaryString}${this.encodeCharacter(e, this.tree, "")}`;
-        });
-
-        return binaryString;
+        return string.split("").map(e =>  {
+            return Object.assign(`${this.encodeCharacter(e, this.tree, "")}`);
+        }).join("");
     }
 
     encodeCharacter(character, node, code) {
@@ -76,7 +72,6 @@ class HuffmanTree {
                 node = this.tree;
             }
         }
-
         return output.join("");
     }
 }
