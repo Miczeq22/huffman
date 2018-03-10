@@ -27,7 +27,7 @@ describe("Huffman Tree", () => {
     });
 
     it ("should encode string", () => {
-        expect(new HuffmanTree(letters).encode("AAA")).to.be.equal("000"); 
+        expect(new HuffmanTree(letters).encode("EA")).to.be.equal("11010"); 
     });
 
     it ("should encode character", () => {

@@ -29,7 +29,13 @@ class HuffmanTree {
     }
     
     encode(string) {
+        let binaryString = "";
 
+        string.split("").map(e =>  {
+            binaryString = `${binaryString}${this.encodeCharacter(e, this.tree, "")}`;
+        });
+
+        return binaryString;
     }
 
     encodeCharacter(character, node, code) {
