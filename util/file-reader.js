@@ -30,7 +30,19 @@ export const getUniqueLettersFromString = (string) => {
     });
 };
 
-export const countLettersInString = (string, letters = []) => {};
+export const countLettersInString = (string, letters = []) => {
+    return new Promise((resolve, reject) => {
+        if (letters.length === 0) {
+            reject(Error("Array of letters is empty."));
+        } else if(typeof string !== "string" || string.length === 0) {
+            reject(Error("String can't be empty."));
+        } else {
+            resolve(letters.map(letter => {
+                return { value: letter, frequency: string.split(letter).length - 1 };
+            }));
+        }
+    });
+};
 
 const countLettersInFile = (path) => {};
 

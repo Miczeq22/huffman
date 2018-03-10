@@ -16,7 +16,7 @@ describe ("File Reader", () => {
     });
 
     it ("should return array of object with value and frequency of letter in string", () => {
-        return countLettersInString("AAABBCC").then(letters => {
+        return countLettersInString("AAABBC", ["A", "B", "C"]).then(letters => {
             expect(letters).to.deep.equal([
                 { value: "A", frequency: 3 },
                 { value: "B", frequency: 2 },
