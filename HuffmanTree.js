@@ -33,7 +33,25 @@ class HuffmanTree {
     }
 
     encodeCharacter(character, node, code) {
+        if (node === null || node === undefined) {
+            return null;
+        }
 
+        if (node.value === character) {
+            return code;
+        }
+
+        const left = this.encodeCharacter(character, node.left, `${code}0`);
+        if (left) {
+            return left;
+        }
+
+        const right = this.encodeCharacter(character, node.right, `${code}1`);
+        if (right) {
+            return right;
+        }
+
+        return null;
     }
 
     decode(code) {
