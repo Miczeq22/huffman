@@ -17,4 +17,4 @@ Result:
 
 #### Requirements
 - Installed GIT
-- Installed node.js (we recommend using [nvm](https://github.com/creationix/nvm) to run multiple versions of node).
+- Installed node.js
