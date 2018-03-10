@@ -20,7 +20,7 @@ export const getUniqueLettersFromString = (string) => {
             const letters = [];
 
             for (let i = 0; i < string.length; i++) {
-                if (string[i] !== string[i + 1] && string[i + 1] !== "\n") {
+                if (string[i] !== string[i + 1] && string[i] !== "\n") {
                     letters.push(string[i]);
                 }
             }
@@ -44,6 +44,11 @@ export const countLettersInString = (string, letters = []) => {
     });
 };
 
-const countLettersInFile = (path) => {};
+const countLettersInFile = (path) => {
+    return readFilePromise(path)
+    .then(getUniqueLettersFromString)
+    .then(letters => readFilePromise(path).then(string => [string, letters]))
+    .then(data => countLettersInString(data[0], data[1]));
+};
 
 export default countLettersInFile;
