@@ -2,31 +2,24 @@ import { expect } from 'chai';
 import HuffmanTree from '../HuffmanTree';
 
 describe("Huffman Tree", () => {
-    const letters = [
-        { value: "A", frequency: 45 },
-        { value: "D", frequency: 16 },
-        { value: "B", frequency: 13 },
-        { value: "C", frequency: 12 },
-        { value: "E", frequency: 9 },
-        { value: "F", frequency: 5 },
-    ];
+    let letters = [];
+
+    beforeEach(() => {
+        letters = [
+            { value: "A", frequency: 45 },
+            { value: "D", frequency: 16 },
+            { value: "B", frequency: 13 },
+            { value: "C", frequency: 12 },
+            { value: "E", frequency: 9 },
+            { value: "F", frequency: 5 },
+        ];
+    })
 
     it ("should return instance of HuffmanTree", () => {
         expect(new HuffmanTree([])).to.be.instanceOf(HuffmanTree);
     });
 
-    it ("should sort letters by frequency while creating new instance", () => {
-        expect(new HuffmanTree(letters).letters).to.be.deep.equal([
-            { value: "F", frequency: 5 },
-            { value: "E", frequency: 9 },
-            { value: "C", frequency: 12 },
-            { value: "B", frequency: 13 },
-            { value: "D", frequency: 16 },
-            { value: "A", frequency: 45 },
-        ]);
-    });
-
-    it ("should build a tree", () => {
+    it ("should build a tree while creating new instance", () => {
         expect(new HuffmanTree(letters).tree.left).to.be.deep.equal({
             frequency: 45, 
             value: "A"
