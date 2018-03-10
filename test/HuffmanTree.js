@@ -36,7 +36,7 @@ describe("Huffman Tree", () => {
     });
 
     it ("should decode binary string to string", () => {
-        expect(new HuffmanTree(letters).decode("000")).to.be.equal("AAA");
+        expect(new HuffmanTree(letters).decode("11010")).to.be.equal("EA");
     });
 
 });

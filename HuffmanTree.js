@@ -61,7 +61,23 @@ class HuffmanTree {
     }
 
     decode(code) {
+        const codeArray = code.split("");
+        const output = [];
+        let node = this.tree;
+        
+        for (let codeNumber of codeArray) {
+            if (codeNumber === "0") {
+                node = node.left;
+            } else {
+                node = node.right;
+            }
+            if (node.value !== null) {
+                output.push(node.value);
+                node = this.tree;
+            }
+        }
 
+        return output.join("");
     }
 }
 
